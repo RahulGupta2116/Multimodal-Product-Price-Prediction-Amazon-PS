@@ -1,10 +1,3 @@
-# Official Solution for Amazon ML Challenge 2025 by team SPAM_LLMs (IIT ISM Dhanbad) (3rd in Public LB, 5th in Private LB)
-
-## Team Members
-- Manav Jain [Linkedin](https://www.linkedin.com/in/manav-jain-05a711255/)
-- Karaka Prasanth Naidu [Linkedin](https://www.linkedin.com/in/prasanth-naidu-karaka-a7162019b/)
-- Alok Raj [Linkedin](https://www.linkedin.com/in/loki-silvres/)
-- Rudraksh Sachin Joshi [Linkedin](https://www.linkedin.com/in/rudraksh-sachin-joshi-75554b202/)
 
 ## Problem Statement
 ### Smart Product Pricing Challenge
@@ -18,10 +11,6 @@ The dataset consists of the following columns:
 2. catalog_content: Text field containing title, product description and an Item Pack Quantity(IPQ) concatenated.
 3. image_link: Public URL where the product image is available for download. Example link - https://m.media-amazon.com/images/I/71XfHPR36-L.jpg
 4. price: Price of the product (Target variable - only available in training data)
-
-# Dataset 
-
-Link: [Kaggle Dataset](https://www.kaggle.com/datasets/manav2805/amazon-ml-challenge-25/data)
 
 # Approach
 
