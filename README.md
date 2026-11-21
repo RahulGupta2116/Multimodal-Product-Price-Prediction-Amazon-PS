@@ -15,13 +15,13 @@ The dataset consists of the following columns:
 
 TL;DR I use embeddings for each modality, pass them through modality-wise networks, and feed the result to a final regressor network.
 
-Using pretrained embeddings without fine-tuning, combined with careful selection and training of the subsequent layers, my solution beat many teams that adopted fine-tuning based approaches and reached 3rd position on the public LB and 5th position on the private LB. Even the teams above me were within a small margin of SMAPE. Using pretrained frozen encoders might seem less cool, but it worked.
+Using pretrained embeddings without fine-tuning, combined with careful selection and training of the subsequent layers, gave strong results without the cost of fine-tuning, reaching an average 5-fold cross-validation SMAPE of 41.67%. Using pretrained frozen encoders might seem less cool, but it worked.
 
 It turns out that LLMs distilled to smaller versions have weaker representation capability, and the quality of their embeddings drops drastically. Fine-tuning them can only take you so far, so bigger models sometimes beat fine-tuned smaller models.
 
-A common misconception was to pick a single modality, like text or image, without experimenting. Bringing in the image modality from the very beginning helped me realize its importance. It's easy to assume images don't matter for predicting price, but drawing signal from multiple modalities improves performance.
+It's tempting to pick a single modality, like text or image, without experimenting. Bringing in the image modality from the very beginning helped me realize its importance. It's easy to assume images don't matter for predicting price, but drawing signal from multiple modalities improves performance.
 
-All the above points are in the context of a competitive setting, but they loosely extend to production settings, where getting a better score matters a lot.
+These points come from a benchmark setting, but they loosely extend to production settings, where getting a better score matters a lot.
 
 ## Evaluation Metric
 Symmetric Mean Absolute Percentage Error (SMAPE)
@@ -57,7 +57,7 @@ After experimenting with multiple models, I used the following in my final pipel
 2. Siglip2 Giant - 2B - Text + Image [HF](https://huggingface.co/google/siglip2-giant-opt-patch16-256)
 3. DinoV3 - 0.8B - Image [HF](https://huggingface.co/facebook/dinov3-vith16plus-pretrain-lvd1689m)
 
-Many participants tried fine-tuning smaller versions of Qwen3, but the 4B version produced embeddings good enough to give a solid improvement on their own. Lesson: try bigger models before fine-tuning smaller ones.
+Instead of fine-tuning a smaller version of Qwen3, I used the 4B version frozen, and its embeddings were good enough to give a solid improvement on their own. Lesson: try bigger models before fine-tuning smaller ones.
 
 # Modality Specific Networks
 <img width="722" height="812" alt="AMLC2025-Final drawio" src="https://github.com/user-attachments/assets/c5792a0a-15f5-4093-bb53-a5949cb21647" />
